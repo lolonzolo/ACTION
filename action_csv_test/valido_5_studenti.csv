@@ -1,0 +1,6 @@
+Studente,A,B,C,D,E
+A,NULL,3,9,1,5
+B,3,NULL,3,7,5
+C,9,3,NULL,10,6
+D,8,8,3,NULL,10
+E,9,9,9,7,NULL

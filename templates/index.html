@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ACTION</title>
+</head>
+
+<body>
+
+    <h1>ACTION</h1>
+    <!-- method="POST": indica che i dati vengono inviati al server mediante una richiesta HTTP POST 
+    in app.py, @app.route() dice a Flask che quando arriva una richiesta all' indirisso / esegue la funnzione idex()
+    -->
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>            <!-- Caricamento file: Permette all'utente di selezionare un file dal proprio computer, 
+                                                                type="file" crea un campo per selezionare un file
+                                                                name="file"	Identifica il file nella richiesta HTTP
+                                                                required	Impedisce l'invio del form senza selezionare un file
+                                                                -->
+        <button type="submit">Ottimizza</button>            <!-- Ottimizzazione: pulsante che se premuto invia il file a flask-->
+    </form>
+
+    <!-- parte non in html puro ma realizzata con Jinja2, template integrato in Flask per 
+    utilizzare i dati inviati da pyhton 
+
+    Se il risultato esiste, vengono visualizzati:
+        - result.group1: elenco degli studenti appartenenti al primo gruppo.
+        - result.score1: punteggio medio del primo gruppo.
+        - result.group2: elenco degli studenti appartenenti al secondo gruppo.
+        - result.score2: punteggio medio del secondo gruppo.
+        - result.average: media dei punteggi dei due gruppi, cioè il valore che l'algoritmo cerca di massimizzare.
+    -->
+
+    {% if error %}
+        <p>Errore: {{ error }}</p>  <!-- visualizzazzione messaggio d'errore nella pagina-->
+    {% endif %}
+
+    {% if result %}
+        <h2>Risultati</h2>
+
+        <h3>Gruppo 1</h3>
+        <p>{{ result.group1 }}</p>
+        <p>Punteggio: {{ result.score1 }}</p>
+
+        <h3>Gruppo 2</h3>
+        <p>{{ result.group2 }}</p>
+        <p>Punteggio: {{ result.score2 }}</p>
+
+        <h3>Punteggio finale: {{ result.average }}</h3>
+    {% endif %}
+
+</body>
+</html>
