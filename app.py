@@ -9,13 +9,8 @@ from optimizer import optimize_groups
 
 app = Flask(__name__) #creazione app Flask, name sarà l'oggetto che rappresenta il server web,
                         #al quale verranno assegnate tutte le risorse necessarie
-app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 #dimensione massima richiesta HTTP 1.048.576 byte, per evitare che l'utente
-                                                #carichi file troppo grandi, in quel caso Flask genera errore HTTP
-"""
--GET metodo con cui il browser chiede i dati per mostrare la pagina HTML
--POST metodo con cui il browser chiede di effetturare l'ottimizzazzione 
-e determinare i gruppi quando carico un file e premo il pulsante ottimizza gruppi
-"""
+app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 
+
 @app.route("/", methods=["GET", "POST"]) #associazione indirizzo web a funzione python
                                             #quando si apre http://127.0.0.1:5000/ esegue def index():
 

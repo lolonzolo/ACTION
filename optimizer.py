@@ -47,6 +47,7 @@ def optimize_groups(students, matrix):
             best_score2 = score2
 
     return {
+        #list comprehension per passare da indici a nomi studenti
         "group1": [students[i] for i in best_group1],
         "group2": [students[i] for i in best_group2],
         "score1": best_score1,
